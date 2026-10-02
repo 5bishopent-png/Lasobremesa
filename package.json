@@ -1,1 +1,20 @@
-{"name":"sobre-mesa-concierge","private":true,"type":"module","engines":{"node":">=22"},"dependencies":{"ai":"7.0.127"},"scripts":{"test":"node --test tests/*.test.js","check":"node --check api/concierge.js && node --check api/requests.js && node --check api/admin.js && node --check api/reminders.js && node --check concierge.js"}}
+{
+  "name": "sobre-mesa-concierge",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "ai": "7.0.127"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check api/concierge.js && node --check api/requests.js && node --check api/admin.js && node --check api/reminders.js && node --check concierge.js",
+    "typecheck": "tsc --noEmit --allowJs --checkJs --noImplicitAny false --useUnknownInCatchVariables false --types node --target es2022 --module nodenext --moduleResolution nodenext --skipLibCheck api/*.js lib/*.js"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  }
+}
