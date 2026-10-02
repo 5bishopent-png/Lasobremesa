@@ -1,1 +1,25 @@
-{"functions":{"api/concierge.js":{"maxDuration":30},"api/admin.js":{"maxDuration":60},"api/requests.js":{"maxDuration":30},"api/reminders.js":{"maxDuration":60}},"crons":[{"path":"/api/reminders","schedule":"0 13 * * *"}]}
+{
+  "functions": {
+    "api/concierge.js": {
+      "maxDuration": 30
+    },
+    "api/admin.js": {
+      "maxDuration": 60
+    },
+    "api/requests.js": {
+      "maxDuration": 30
+    },
+    "api/reminders.js": {
+      "maxDuration": 60
+    },
+    "api/transcripts.js": {
+      "maxDuration": 30
+    }
+  },
+  "crons": [
+    {
+      "path": "/api/reminders",
+      "schedule": "0 13 * * *"
+    }
+  ]
+}

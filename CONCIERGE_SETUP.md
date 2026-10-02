@@ -22,3 +22,9 @@ Resend schedules reminders 24 hours and 1 hour before a confirmed consultation (
 ## Operational checks
 
 Run `npm test` and `npm run check`. Test a real inquiry after configuring storage, email and calendar: verify the owner record, acknowledgment, free/busy conflict, confirmation invitation, and scheduled reminder IDs. These external operations have not been tested until credentials are configured. Memory chat rate limiting is per server instance; connect Redis for shared limits. Public endpoint origin checks are a browser safeguard, not authentication. Owner endpoints require the bearer token; cron requires its own secret. Do not log personal details or tokens. Database retention/deletion must be managed by the owner; there is no public lookup endpoint.
+
+## Call Sheet and consented transcripts
+
+A connected Resend/ChatGPT automation sends a daily Call Sheet at 21:00 America/New_York to the owner Gmail and chef inbox. The task reads only today’s Sobre Mesa concierge archive/inquiry emails, deduplicates snapshots and linked inquiries, and includes notes, follow-up actions and full available consented website transcripts. It excludes telephone calls and test records. Subject: Call Sheet — YYYY-MM-DD. An empty archive is reported as no archived records, not no visitors. Delivery to the chef inbox still depends on its receiving/forwarding setup.
+
+Chat sharing is opt-in. Submitted planning requests explicitly consent to share the associated transcript. Archive updates go to the owner via Resend; if Redis is connected they are additionally stored for 30 days. If Redis is unavailable but email is connected, inquiry submission uses email and reports emailed rather than privately saved. Language-model responses perform no actions. Use npm run typecheck, npm test, and npm run check.
