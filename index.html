@@ -103,7 +103,7 @@ h2{font-family:'Italiana',Georgia,serif;font-weight:400;font-size:clamp(50px,5.9
 <nav>
 <div class="logo">LA SOBRE MESA<small>THE ART OF STAYING</small></div>
 <div class="links"><a href="#experiences">Experiences</a><a href="#chef">Chef</a><a href="#services">Events</a><a href="#menus">Menus</a><a href="#contact">Inquire</a></div>
-<div class="links"><a class="phone" href="tel:+18048667307">Phone +1 804.866.7307</a><a href="mailto:chef@lasobremesa.vip">chef@lasobremesa.vip</a></div>
+<div class="links"><a class="phone" href="tel:+18048667307">Phone +1 804.866.7307</a><a href="#contact">Email / Event Inquiry</a></div>
 </nav>
 
 <header class="hero">
@@ -178,9 +178,9 @@ h2{font-family:'Italiana',Georgia,serif;font-weight:400;font-size:clamp(50px,5.9
 <div class="table-banner"><div><div class="kicker">Our Standard</div><blockquote>“Luxury is not more.<br>It is exactly enough.”</blockquote><cite>Precision without ceremony · Warmth without performance · Generosity without excess</cite></div></div>
 
 <section id="contact" class="contact">
-<div class="inquiry-wrap"><div><div class="kicker">Begin the Conversation</div><h2>Be a guest at your own table.</h2><p class="intro">Tell us who is gathering, what brings them together and what you want the evening to feel like. We will begin there.</p><p class="micro">Virginia · Richmond region · Destination events by inquiry</p><p><a class="btn" href="tel:+18048667307">Call +1 804.866.7307</a><a class="btn" href="mailto:chef@lasobremesa.vip">Direct Email</a></p></div>
-<form class="inquiry-form" id="inquiryForm">
-<div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+<div class="inquiry-wrap"><div><div class="kicker">Begin the Conversation</div><h2>Be a guest at your own table.</h2><p class="intro">Tell us who is gathering, what brings them together and what you want the evening to feel like. We will begin there.</p><p class="micro">Virginia · Richmond region · Destination events by inquiry</p><p><a class="btn" href="tel:+18048667307">Call +1 804.866.7307</a><a class="btn" href="#inquiryForm">Email / Event Inquiry</a></p></div>
+<form class="inquiry-form" id="inquiryForm" action="https://formsubmit.co/support@livenestora.com" method="POST">
+<input type="hidden" name="_subject" value="New La Sobre Mesa Event Inquiry"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://www.lasobremesa.vip/#contact"><div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
 <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
 <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
 <div class="field"><label for="date">Event date</label><input id="date" name="date" type="date"></div>
@@ -189,9 +189,9 @@ h2{font-family:'Italiana',Georgia,serif;font-weight:400;font-size:clamp(50px,5.9
 <div class="field"><label for="location">Location / venue</label><input id="location" name="location" placeholder="City, home or venue"></div>
 <div class="field"><label for="budget">Estimated budget</label><select id="budget" name="budget"><option value="">Select range</option><option>Under $1,500</option><option>$1,500–$3,000</option><option>$3,000–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option><option>Not sure yet</option></select></div>
 <div class="field full"><label for="details">Tell us about the gathering</label><textarea id="details" name="details" placeholder="Occasion, service style, menu ideas, dietary needs, timing, or anything else we should know."></textarea></div>
-<div class="field full"><button class="btn fill" type="submit">Create My Table</button><div class="inquiry-note">Submitting opens your email application addressed to chef@lasobremesa.vip. No information is stored on this website.</div></div>
+<div class="field full"><button class="btn fill" type="submit">Create My Table</button><div class="inquiry-note">Your inquiry will be sent directly to La Sobre Mesa. You will return to this page after submitting.</div></div>
 </form></div></section>
-<script>document.getElementById('inquiryForm').addEventListener('submit',function(e){e.preventDefault();const f=new FormData(this),v=k=>f.get(k)||'Not provided';const subject='La Sobre Mesa Event Inquiry — '+v('type')+' — '+v('date');const body=['LA SOBRE MESA EVENT INQUIRY','','Name: '+v('name'),'Email: '+v('email'),'Phone: '+v('phone'),'Event date: '+v('date'),'Event type: '+v('type'),'Guest count: '+v('guests'),'Location / venue: '+v('location'),'Estimated budget: '+v('budget'),'','About the gathering:',''+v('details')].join('\n');window.location.href='mailto:chef@lasobremesa.vip?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);});</script>
 
-<footer>LA SOBRE MESA · WE COOK FOR WHAT HAPPENS AFTER THE LAST COURSE · CHEF ADAM BISHOP · <a href="tel:+18048667307">Phone +1 804.866.7307</a> · <a href="mailto:chef@lasobremesa.vip">chef@lasobremesa.vip</a></footer></main>
+
+<footer>LA SOBRE MESA · WE COOK FOR WHAT HAPPENS AFTER THE LAST COURSE · CHEF ADAM BISHOP · <a href="tel:+18048667307">Phone +1 804.866.7307</a> · <a href="#contact">Email / Event Inquiry</a></footer></main>
 </body></html>
