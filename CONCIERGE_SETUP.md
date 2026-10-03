@@ -17,7 +17,7 @@ Set secrets in this project's Vercel environment, never source control, then red
 
 Review requests in the private desk. Confirm a 20-minute consultation at an explicitly chosen local time. Confirmation checks Google Calendar availability and sends an attendee invitation; this confirms a consultation only, never the catering event. Redis stores the reference and structured intake. A deterministic calendar event ID and confirmation lock prevent duplicate calendar writes. The model has no booking permissions.
 
-Resend schedules reminders 24 hours and 1 hour before a confirmed consultation (client only when opted in, owner always). Daily cron picks up appointments outside Resend's 30-day scheduling window. Provider acceptance is not proof of mailbox delivery. Do not change or cancel confirmed events without cancelling already scheduled Resend emails in the Resend dashboard and updating their stored request status; automated rescheduling/cancellation is not implemented. Incoming chat transcripts are not saved. Only submitted planning data is stored.
+Resend schedules reminders 24 hours and 1 hour before a confirmed consultation (client only when opted in, owner always). Daily cron picks up appointments outside Resend's 30-day scheduling window. Provider acceptance is not proof of mailbox delivery. Do not change or cancel confirmed events without cancelling already scheduled Resend emails in the Resend dashboard and updating their stored request status; automated rescheduling/cancellation is not implemented. Consented chat transcripts and submitted planning data are stored privately; chat archive records expire after 30 days.
 
 ## Operational checks
 
@@ -30,3 +30,9 @@ A connected Resend/ChatGPT automation sends a daily Call Sheet at 21:00 America/
 Chat sharing is opt-in. Submitted planning requests explicitly consent to share the associated transcript. Archive updates go to the owner via Resend; if Redis is connected they are additionally stored for 30 days. If Redis is unavailable but email is connected, inquiry submission uses email and reports emailed rather than privately saved. Language-model responses perform no actions. Use npm run typecheck, npm test, and npm run check.
 
 The Vercel Upstash integration can supply KV_REST_API_URL and KV_REST_API_TOKEN instead of UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN. The server accepts either complete pair and never mixes credentials from different pairs. Use the write token, not KV_REST_API_READ_ONLY_TOKEN.
+
+## Verified activation status — October 3, 2026
+
+Production Redis storage saves requests and recognizes duplicate retries; transactional email acceptance is verified. Gateway inference returns HTTP 403 with a credit-related diagnostic for both `openai/gpt-6.1-sol` and the zero-priced `inclusionai/ling-3.1-flash-free`; switching models does not activate access. Complete AI Gateway billing/access setup for the owning Vercel team, then verify `/api/concierge` returns a nonempty `mode: ai` answer. Do not infer working AI from the presence of OIDC alone. The configured model is restored to `openai/gpt-6.1-sol`.
+
+Calendar confirmation and automatic appointment reminders require the Google Calendar OAuth configuration listed above. A preferred time in an inquiry remains a request until the owner confirms it. Nightly website Call Sheets use the separate existing Resend automation.
